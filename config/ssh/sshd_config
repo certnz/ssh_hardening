@@ -42,7 +42,8 @@ PermitEmptyPasswords no
 # Depending on your 2FA option, you may need to enable some of these options, but they should be disabled by default
 ChallengeResponseAuthentication no
 PasswordAuthentication no
-UsePAM no
+# Changed to enable PAM by default. Double check for your environment
+UsePAM yes
 
 # Disable Kerberos based authentication
 KerberosAuthentication no
