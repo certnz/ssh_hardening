@@ -1,0 +1,71 @@
+# /etc/ssh/sshd_config
+
+# What ports, IPs and protocols we listen for
+Port 22
+# Use these options to restrict which interfaces/protocols sshd will bind to
+#ListenAddress ::
+#ListenAddress 0.0.0.0
+Protocol 2
+# Ciphers, MACs and Kex may be changed as needed to support your SSH clients.
+Ciphers chacha20-poly1305@openssh.com
+MACs hmac-sha2-512-etm@openssh.com
+KexAlgorithms curve25519-sha256@libssh.org
+HostKey /etc/ssh/ssh_host_ed25519_key
+UsePrivilegeSeparation sandbox
+StrictModes yes
+
+# Make sure we get all the information possible in our logs, to be able to monitor SSH authentication.
+SyslogFacility AUTHPRIV
+LogLevel VERBOSE
+# Disable sftp, but if you really need it, this is the example from Mozilla suggested config. However, you may wish to configure it differently, to use chroot for example.
+#Subsystem sftp /usr/lib/openssh/sftp-server -f AUTHPRIV -l INFO
+
+# Disable connection multiplexing which can be used to bypass authentication
+MaxSessions 1
+
+MaxAuthTries 1 # If you have multiple SSH keys, make sure to only present the right one
+LoginGraceTime 10
+# If you need to allow root login, consider the use of forced-commands-only, which means that only an SSH key with a forced command option can be used to authenticate
+PermitRootLogin no
+
+# Set what authentication options are allowed
+RSAAuthentication no
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+
+# You may wish to limit SSH access to only certain groups
+#AllowGroup ssh-users
+
+# Depending on your 2FA option, you may need to enable some of these options, but they should be disabled by default
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+UsePAM no
+
+# Disable Kerberos based authentication
+KerberosAuthentication no
+KerberosGetAFSToken no
+KerberosOrLocalPasswd no
+KerberosTicketCleanup yes
+GSSAPIAuthentication no
+GSSAPICleanupCredentials yes
+
+# Disable user envirnment forwarding
+X11Forwarding no
+PermitUserEnvironment no
+PermitUserRC no
+# This is not usually necessary, but may be required on an SSH jump/ bastion host. If you do enable this, consider setting PermitOpen to allow only specific port forwarding
+AllowTcpForwarding no
+
+# What messages do you want to present your users when they log in?
+PrintMotd yes
+PrintLastLog yes
+Banner /etc/ssh/ssh_banner
+
+TCPKeepAlive yes
+UseLogin no
+UseDNS no
+ClientAliveInterval 300
+ClientAliveCountMax 0
