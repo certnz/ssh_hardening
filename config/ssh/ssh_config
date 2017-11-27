@@ -4,6 +4,8 @@ KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-512
 Ciphers chacha20-poly1305@openssh.com,aes256-ctr
 HashKnownHosts yes
+# As of openssh 7.3, you can tell ssh where to look for an agent socket, rather than relying on SSH_AUTH_SOCK environment variable.
+#IdentityAgent /path/to/agent.sock
 
 Host *
     UseRoaming no
