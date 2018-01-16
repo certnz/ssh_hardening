@@ -14,5 +14,4 @@ Host *
     ForwardX11 no
     ForwardAgent no
     ServerAliveInterval 60
-    ForwardX11 no
     ControlMaster no
