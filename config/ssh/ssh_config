@@ -12,6 +12,8 @@ Host *
     PasswordAuthentication no
     GSSAPIAuthentication no
     ForwardX11 no
+    # If you do enable X11 forwarding, consider only enabling it for specific hosts, and also make sure that the remote client is untrusted
+    ForwardX11Trusted no
     ForwardAgent no
     ServerAliveInterval 60
     ControlMaster no
