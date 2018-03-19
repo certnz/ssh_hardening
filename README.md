@@ -44,6 +44,8 @@ CERT NZ uses Yubikey tokens from Yubico, and the following instructions only hav
 
 ### Setting up on Linux
 
+These instructions assume you are pretty familiar with gnupg and associated tools. A more detailed writeup can be found at [drduh githib repo](https://github.com/drduh/YubiKey-Guide)
+
 1. Install dependencies  
 These software packages are necessary to use an openPGP smartcard with GnuPG for SSH authentication: `gnupg2` `pcscd` `scdaemon` 
 You need to ensure that you have these packages installed (or compile them yourself). 
@@ -76,3 +78,4 @@ A list of the external links, in one place for good measure.
 * [Riseup openPGP recommendations](https://riseup.net/en/security/message-security/openpgp/best-practices)
 * [Arch Linux wiki GnuPG page](https://wiki.archlinux.org/index.php/GnuPG)
 * [Yubico openPGP documentation](https://developers.yubico.com/PGP/)
+* [Detailed writeup of setting up GPG with a yubikey](https://github.com/drduh/YubiKey-Guide)
