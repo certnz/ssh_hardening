@@ -57,6 +57,7 @@ GSSAPICleanupCredentials yes
 X11Forwarding no
 PermitUserEnvironment no
 PermitUserRC no
+AllowAgentForwarding no
 # This is not usually necessary, but may be required on an SSH jump/ bastion host. If you do enable this, consider setting PermitOpen to allow only specific port forwarding
 AllowTcpForwarding no
 # As of OpenSSH 7.4, consider using this option to disable all forwarding in one option
