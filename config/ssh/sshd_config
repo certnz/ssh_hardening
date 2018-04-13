@@ -13,6 +13,7 @@ KexAlgorithms curve25519-sha256@libssh.org
 HostKey /etc/ssh/ssh_host_ed25519_key
 UsePrivilegeSeparation sandbox
 StrictModes yes
+Compression no
 
 # Make sure we get all the information possible in our logs, to be able to monitor SSH authentication.
 SyslogFacility AUTHPRIV
@@ -68,9 +69,9 @@ PrintMotd yes
 PrintLastLog yes
 Banner /etc/ssh/ssh_banner
 
-TCPKeepAlive yes
+TCPKeepAlive no
 # UseLogin removed as of 7.4
 UseLogin no
 UseDNS no
-ClientAliveInterval 300
-ClientAliveCountMax 0
+ClientAliveInterval 60
+ClientAliveCountMax 3
